@@ -1,0 +1,1 @@
+alter table institution drop column id_project;
