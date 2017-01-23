@@ -2521,8 +2521,8 @@ COMMENT ON COLUMN researcher.tp_confirmed IS 'For ''tp_confirmed'' 0 is ''Accoun
 -- Add column "tp_confirmed".
 ALTER TABLE institution
   ADD COLUMN ds_abbreviation character varying(10);
-ALTER TABLE institution
-  ADD CONSTRAINT uq_ds_abbreviation UNIQUE (ds_abbreviation);
+--ALTER TABLE institution
+--  ADD CONSTRAINT uq_ds_abbreviation UNIQUE (ds_abbreviation);
   
   
 --v.0.1.2--
