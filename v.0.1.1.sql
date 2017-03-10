@@ -2531,9 +2531,26 @@ ALTER TABLE project RENAME ds_slug  TO ds_key;
 
 
 
-
-
+INSERT INTO public.search_engine(
+	id_search_engine, nm_search_engine)
+	VALUES (1, 'MANUAL INSERT');
 
 INSERT INTO public.country(
 	id_country, nm_country)
 	VALUES (1, 'Brasil');
+
+INSERT INTO public.language(
+	id_language, nm_language)
+	VALUES (1, 'English');
+
+INSERT INTO public.language(
+	id_language, nm_language)
+	VALUES (2, 'Portuguese');
+
+INSERT INTO public.language(
+	id_language, nm_language)
+	VALUES (3, 'Espanol');
+
+INSERT INTO public.language(
+	id_language, nm_language)
+	VALUES (4, 'Chinese');
