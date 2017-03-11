@@ -1251,7 +1251,7 @@ CREATE TABLE study (
     id_search bigint,
     CONSTRAINT ck_tp_reading_rate CHECK ((tp_reading_rate = ANY (ARRAY[0, 1, 2, 3]))),
     CONSTRAINT ck_tp_status CHECK ((tp_status = ANY (ARRAY[0, 1, 2, 3]))),
-    CONSTRAINT ck_tp_venue CHECK ((tp_venue = ANY (ARRAY[0, 1, 2, 3])))
+    CONSTRAINT ck_tp_venue CHECK ((tp_venue = ANY (ARRAY[0, 1, 2, 3,4])))
 );
 
 
