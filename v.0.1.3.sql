@@ -2528,7 +2528,10 @@ ALTER TABLE institution
 --v.0.1.2--
 ALTER TABLE project RENAME ds_slug  TO ds_key;
 
-
+--v.0.1.3--
+-- Add column "ds_commentary".
+ALTER TABLE review
+  ADD COLUMN ds_commentary text;
 
 
 INSERT INTO public.search_engine(
