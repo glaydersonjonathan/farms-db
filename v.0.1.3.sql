@@ -2528,6 +2528,11 @@ ALTER TABLE institution
 --v.0.1.2--
 ALTER TABLE project RENAME ds_slug  TO ds_key;
 
+-- v.0.1.3 --
+
+ALTER TABLE public.project_member
+    ADD COLUMN tp_state character(1) COLLATE pg_catalog."default";
+
 
 INSERT INTO public.search_engine(
 	id_search_engine, nm_search_engine)
