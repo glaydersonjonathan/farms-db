@@ -2557,6 +2557,10 @@ CREATE OR REPLACE VIEW public.studies_in_conflicts AS
                           GROUP BY r.id_study, r.tp_status, project.ds_key) foo) foo2
           GROUP BY foo2.id_study, foo2.ds_key) foo3
   WHERE foo3.ce > 1;
+  
+  --v 1..0.5 --
+  ALTER TABLE public.criteria_review_justification
+    ALTER COLUMN ds_justification DROP NOT NULL;
 
 ALTER TABLE public.studies_in_conflicts
     OWNER TO nordsc_userfarmsp;
