@@ -2568,3 +2568,24 @@ ALTER TABLE public.studies_in_conflicts
 INSERT INTO public.search_engine(
 	id_search_engine, nm_search_engine)
 	VALUES (1, 'MANUAL INSERT');
+	
+	INSERT INTO public.rated_content(
+	id_rated_content, ds_rated_content)
+	VALUES (1, 'Title');
+	
+	INSERT INTO public.rated_content(
+	id_rated_content, ds_rated_content)
+	VALUES (2, 'Title + Abstract');
+	
+	INSERT INTO public.rated_content(
+	id_rated_content, ds_rated_content)
+	VALUES (3, 'Title + Abstract + Introduction');
+	
+	INSERT INTO public.rated_content(
+	id_rated_content, ds_rated_content)
+	VALUES (4, 'Title + Abstract + Introduction + Conclusion');
+	
+	INSERT INTO public.rated_content(
+	id_rated_content, ds_rated_content)
+	VALUES (5, 'Full Text');
+	
