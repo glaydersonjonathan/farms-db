@@ -2564,7 +2564,34 @@ CREATE OR REPLACE VIEW public.studies_in_conflicts AS
 
 ALTER TABLE public.studies_in_conflicts
     OWNER TO nordsc_userfarmsp;
+    
+--v.1.0.6
+-- View: public.score_conflicts
 
+-- DROP VIEW public.score_conflicts;
+
+CREATE OR REPLACE VIEW public.score_conflicts AS
+ SELECT sum(
+        CASE
+            WHEN review.tp_status = 1 THEN 1
+            ELSE 0
+        END) AS accepted,
+    sum(
+        CASE
+            WHEN review.tp_status = 2 THEN 1
+            ELSE 0
+        END) AS rejected,
+    review.id_study
+   FROM review
+  GROUP BY review.id_study;
+
+ALTER TABLE public.score_conflicts
+    OWNER TO nordsc_userfarmsp;
+
+   
+    
+    
+--
 INSERT INTO public.search_engine(
 	id_search_engine, nm_search_engine)
 	VALUES (1, 'MANUAL INSERT');
