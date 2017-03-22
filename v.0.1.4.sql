@@ -2532,6 +2532,26 @@ ALTER TABLE project RENAME ds_slug  TO ds_key;
 
 ALTER TABLE public.project_member
     ADD COLUMN tp_state character(1) COLLATE pg_catalog."default";
+    
+-- v.0.1.4 --
+ SELECT foo3.id_study,
+    foo3.ds_key
+   FROM ( SELECT count(foo2.id_study) AS ce,
+            foo2.id_study,
+            foo2.ds_key
+           FROM ( SELECT foo.id_study,
+                    foo.tp_status,
+                    foo.ds_key
+                   FROM ( SELECT r.id_study,
+                            r.tp_status,
+                            project.ds_key
+                           FROM review r
+                             LEFT JOIN study USING (id_study)
+                             LEFT JOIN project USING (id_project)
+                          WHERE r.tp_status <> 0
+                          GROUP BY r.id_study, r.tp_status, project.ds_key) foo) foo2
+          GROUP BY foo2.id_study, foo2.ds_key) foo3
+  WHERE foo3.ce > 1;
 
 
 INSERT INTO public.search_engine(
