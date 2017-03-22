@@ -2581,6 +2581,11 @@ CREATE OR REPLACE VIEW public.score_conflicts AS
             WHEN review.tp_status = 2 THEN 1
             ELSE 0
         END) AS rejected,
+    sum(
+        CASE
+            WHEN review.tp_status = 0 THEN 1
+            ELSE 0
+        END) AS unclassified,
     review.id_study
    FROM review
   GROUP BY review.id_study;
