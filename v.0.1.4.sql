@@ -2534,6 +2534,11 @@ ALTER TABLE public.project_member
     ADD COLUMN tp_state character(1) COLLATE pg_catalog."default";
     
 -- v.0.1.4 --
+-- View: public.studies_in_conflicts
+
+-- DROP VIEW public.studies_in_conflicts;
+
+CREATE OR REPLACE VIEW public.studies_in_conflicts AS
  SELECT foo3.id_study,
     foo3.ds_key
    FROM ( SELECT count(foo2.id_study) AS ce,
@@ -2553,6 +2558,8 @@ ALTER TABLE public.project_member
           GROUP BY foo2.id_study, foo2.ds_key) foo3
   WHERE foo3.ce > 1;
 
+ALTER TABLE public.studies_in_conflicts
+    OWNER TO nordsc_userfarmsp;
 
 INSERT INTO public.search_engine(
 	id_search_engine, nm_search_engine)
