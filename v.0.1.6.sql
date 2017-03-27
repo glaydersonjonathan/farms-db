@@ -649,7 +649,7 @@ CREATE TABLE search (
     id_adapted_query bigint,
     ds_search text,
     id_project bigint NOT NULL,
-    CONSTRAINT ck_tp_search CHECK ((tp_search = ANY (ARRAY[0, 1])))
+    CONSTRAINT ck_tp_search CHECK ((tp_search = ANY (ARRAY[0, 1, 2])))
 );
 
 
@@ -659,7 +659,7 @@ CREATE TABLE search (
 -- Name: COLUMN search.tp_search; Type: COMMENT; Schema: public; Owner: -
 --
 
-COMMENT ON COLUMN search.tp_search IS 'Types of search: 0 is "Automatic" and 1 is "Manual".';
+COMMENT ON COLUMN search.tp_search IS 'Types of search: 0 is "Automatic", 1 is "Manual" and 2 is "File Import".';
 
 
 --
@@ -668,7 +668,7 @@ COMMENT ON COLUMN search.tp_search IS 'Types of search: 0 is "Automatic" and 1 i
 -- Name: CONSTRAINT ck_tp_search ON search; Type: COMMENT; Schema: public; Owner: -
 --
 
-COMMENT ON CONSTRAINT ck_tp_search ON search IS 'Types of search: 0 is "Automatic" and 1 is "Manual".';
+COMMENT ON CONSTRAINT ck_tp_search ON search IS 'Types of search: 0 is "Automatic", 1 is "Manual" and 2 is "File Import".';
 
 
 --
@@ -2597,9 +2597,6 @@ ALTER TABLE public.score_conflicts
     
     
 --
-INSERT INTO public.search_engine(
-	id_search_engine, nm_search_engine)
-	VALUES (1, 'MANUAL INSERT');
 	
 	INSERT INTO public.rated_content(
 	id_rated_content, ds_rated_content)
